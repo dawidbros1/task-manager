@@ -1,19 +1,24 @@
-.header{
+#header{
    height: 45px;
    border-bottom: 1px solid black;
    background-color: lightblue;
 
    button{
       font-weight: bold;
-      color: white;
-      padding: 4px 10px;
-      border-radius: 5px;
+      border-radius: 3px;
       font-size: 15px;
       height: 35px;
       margin-top: auto;
       margin-bottom: auto;
       margin-right: 3px;
       border:none;
+      box-sizing: border-box;
+     
+      a{
+         text-decoration: none;
+         color: white;
+         padding: 8px 10px;
+      }
    }
 
    button.register{
