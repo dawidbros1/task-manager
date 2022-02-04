@@ -1,9 +1,13 @@
 import './App.scss';
 
+import Header from './components/Header';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 const App = () => {
+
   return (
-    <div className="App">
-      <h1>It works!</h1>
+    <div className="container-fluid">
+      <Header isLogin={true} />
     </div>
   );
 }
