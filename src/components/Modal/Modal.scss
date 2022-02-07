@@ -3,25 +3,50 @@ dialog{
    left: 50%;
    top: 50%;
 	transform: translate(-50%, -50%);
-	padding: 25px;
+	padding: 10px 20px;
+	width: 650px;
 
 	form{
 		label{
 			font-size: 11px;
 			font-weight: bold;
 			padding: 0 !important;
-			min-width: 150px;
 		}
-		
-		input{
+
+		.box{
+			border: 1px solid black;
+			background-color: rgb(250, 236, 236);
+		}
+
+		input[type=text], input[type=email], input[type=password]{
 			font-size: 13px;
 			padding: 2px;
 			border: 1px solid black;
 			border-radius: 5px;
+			width: 100%;
+			padding: 5px 10px;
+			margin-bottom: 5px;
 		}
 
-		.row{
-			margin: 0;
+		.errors{
+			padding-top: 5px;
+			border-top: 1px solid black;
+			padding-bottom: 5px;
+			width: 100%;
+		}
+
+		.error{
+			color: red;
+			font-size: 11px;
+			margin-left: 3px;
+			font-weight: bold;
+		}
+
+		.title{
+			font-weight: bold;
+			text-align: center;
+			font-size: 21px;
+			padding-bottom: 6px;
 		}
 	}
 }
