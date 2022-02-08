@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 import Modal from '../Modal/Modal';
 import Input from '../Form/Input';
@@ -12,6 +12,8 @@ const request = new Request();
 const LoginForm = ({ handleOnClose }) => {
    const [email, setEmail] = useState('');
    const [password, setPassword] = useState('');
+
+   const [message, setMessage] = useState(null);
    const [validateMessages, setValidateMessages] = useState('');
 
    const handleOnChangeEmail = ({ target: { value } }) => setEmail(value);
@@ -23,7 +25,16 @@ const LoginForm = ({ handleOnClose }) => {
       request.post('/auth/login', data, onSuccess, onFailure);
    }
 
-   const { setUser } = useContext(StoreContext);
+   const { setStateByDataProperty, setUser } = useContext(StoreContext);
+
+   useEffect(() => {
+      setStateByDataProperty('email', setEmail);
+      setStateByDataProperty('message', setMessage);
+   }, [])
+
+   const afterRegisterMessage = message !== null
+      ? <div className='feedback'>{message}</div>
+      : null;
 
    const onFailure = ({ validateMessages }) => setValidateMessages(validateMessages)
 
@@ -39,6 +50,8 @@ const LoginForm = ({ handleOnClose }) => {
       >
          <form method="post" onSubmit={handleOnSubmit}>
             <div className='title'>Logowanie</div>
+
+            {afterRegisterMessage}
 
             <Input id="email" type="email" labelText="Adres email:"
                onChange={handleOnChangeEmail}
