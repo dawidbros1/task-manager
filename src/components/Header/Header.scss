@@ -44,6 +44,49 @@
    }
 
    button.logout{
-      background-color: rgb(94, 90, 90);
+      background-color: rgb(221, 68, 68);
+   }
+   
+   #menu{
+      position: relative;
+      margin: auto 0;
+      margin-right: 10px;
+      cursor: pointer;
+
+      #wrapper:hover{
+         color: #DDD;
+         transition: color 0.3s;
+      }
+
+      ul{
+         position: absolute;
+         right: -5px;
+         top: 30px;
+      
+         padding: 0;
+
+         list-style: none;
+         color: white;
+
+         li{
+            padding: 5px 30px;
+            border-bottom: 2px solid gray;
+            text-align: center;
+            background-color: #333
+         }
+
+         li:hover{
+            transition: background-color 0.4s;
+            background-color: #666
+         }
+
+         li:last-child{
+            border:none;
+         }
+      }
+   }
+
+   #menu:hover ul{
+      display: block;
    }
 }
