@@ -30,7 +30,7 @@ const GuestMenu = () => {
          <div className="mx-auto"></div>
 
          <button className="register" onClick={handleOpenRegisterForm}> Zarejestruj się</button>
-         <button className="login" onClick={handleOpenLoginForm}> Zaloguj się </button>
+         <button className="login" onClick={handleOpenLoginForm}> Zaloguj </button>
 
          {registerFormComponent}
          {loginFormComponent}

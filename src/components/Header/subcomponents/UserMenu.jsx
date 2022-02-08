@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { StoreContext } from "../../../store/StoreProvider";
 
 const UserMenu = () => {
-   const [isMenuActive, setIsMenuActive] = useState(true);
+   const [isMenuActive, setIsMenuActive] = useState(false);
 
    const { user, setUser } = useContext(StoreContext)
 

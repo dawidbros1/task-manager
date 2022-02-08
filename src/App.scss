@@ -1,8 +1,6 @@
 * {
    margin: 0;
    padding: 0;
-
-   color: white;
 }
 
 .container-fluid{
@@ -12,4 +10,11 @@
 
 .blur{
    filter: blur(5px);
+}
+
+.feedback{
+   color: green;
+   text-align: center;
+   font-weight: bold;
+   padding-bottom: 5px;
 }
