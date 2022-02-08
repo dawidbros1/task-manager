@@ -18,9 +18,9 @@ class Request {
          body: JSON.stringify($data),
       })
          .then((response) => response.json())
-         .then((json) => {
-            if (json.status === 200) onSuccess(json.data);
-            else onFailure(json.status, json.validateMessages);
+         .then((response) => {
+            if (response.status === 200) onSuccess(response);
+            else onFailure(response);
          });
    }
 }
