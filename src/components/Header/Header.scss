@@ -51,6 +51,8 @@
       position: relative;
       margin: auto 0;
       margin-right: 10px;
+      color: white;
+
       cursor: pointer;
 
       #wrapper:hover{
@@ -62,11 +64,8 @@
          position: absolute;
          right: -5px;
          top: 30px;
-      
          padding: 0;
-
          list-style: none;
-         color: white;
 
          li{
             padding: 5px 30px;
