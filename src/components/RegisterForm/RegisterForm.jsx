@@ -11,27 +11,23 @@ const RegisterForm = ({ handleOnClose }) => {
    const [email, setEmail] = useState('');
    const [username, setUsername] = useState('');
    const [password, setPassword] = useState('');
+   const [repeatPassword, setRepeatPassword] = useState('');
    const [validateMessages, setValidateMessages] = useState('');
 
    const handleOnChangeEmail = ({ target: { value } }) => setEmail(value);
    const handleOnChangeUsername = ({ target: { value } }) => setUsername(value);
    const handleOnChangePassword = ({ target: { value } }) => setPassword(value);
+   const handleOnChangeRepeatPassword = ({ target: { value } }) => setRepeatPassword(value);
 
    const handleOnSubmit = async event => {
       event.preventDefault();
-
-      const $data = {
-         email: email,
-         username: username,
-         password: password
-      }
-
-      request.post('/auth/register', $data, onSuccess, onFailure);
+      const data = { email, username, password, repeatPassword }
+      request.post('/auth/register', data, onSuccess, onFailure);
    }
 
-   const onFailure = (status, messages) => setValidateMessages(messages)
+   const onFailure = ({ validateMessages }) => setValidateMessages(validateMessages)
 
-   const onSuccess = (data) => {
+   const onSuccess = () => {
       const loginButton = document.querySelector('button.login');
       loginButton.click();
       handleOnClose();
@@ -46,9 +42,33 @@ const RegisterForm = ({ handleOnClose }) => {
             <div className='title'>Rejestracja</div>
 
             <div className='py-2'>
-               <Input id="email" type="email" labelText="Adres email:" onChange={handleOnChangeEmail} value={email} errors={validateMessages.email} rules={['validate', 'sanitize', 'taken']} />
-               <Input id="username" type="text" labelText="Nazwa użytkownika:" onChange={handleOnChangeUsername} value={username} errors={validateMessages.username} rules={['between']} />
-               <Input id="password" type="password" labelText="Hasło:" onChange={handleOnChangePassword} value={password} errors={validateMessages.password} rules={['between']} />
+               <Input id="email" type="email" labelText="Adres email:"
+                  onChange={handleOnChangeEmail}
+                  value={email}
+                  errors={validateMessages.email}
+                  rules={['validate', 'sanitize', 'taken']}
+               />
+
+               <Input id="username" type="text" labelText="Nazwa użytkownika:"
+                  onChange={handleOnChangeUsername}
+                  value={username}
+                  errors={validateMessages.username}
+                  rules={['between']}
+               />
+
+               <Input id="password" type="password" labelText="Hasło:"
+                  onChange={handleOnChangePassword}
+                  value={password}
+                  errors={validateMessages.password}
+                  rules={['between']}
+               />
+
+               <Input id="repeatPassword" type="password" labelText="Powtórz hasło:"
+                  onChange={handleOnChangeRepeatPassword}
+                  value={repeatPassword}
+                  errors={validateMessages.repeatPassword}
+                  rules={['same']}
+               />
             </div>
 
             <div className='d-flex flex-wrap pb-1'>
