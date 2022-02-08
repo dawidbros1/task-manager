@@ -12,7 +12,7 @@ const App = () => {
     <div className="container-fluid">
       <StoreProvider>
         <Router>
-          <Header isLogin={false} />
+          <Header />
           <Routes>
             <Route exact path="/" element={<HomePage />} />
             {/* <Route path="*" element={<NotFound/>}/> */}
