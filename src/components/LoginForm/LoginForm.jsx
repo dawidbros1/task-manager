@@ -49,23 +49,25 @@ const LoginForm = ({ handleOnClose }) => {
          shouldBeCloseOnOutsideClick={false}
       >
          <form method="post" onSubmit={handleOnSubmit}>
-            <div className='title'>Logowanie</div>
+            <div id='page-title'>Logowanie</div>
 
             {afterRegisterMessage}
 
-            <Input id="email" type="email" labelText="Adres email:"
-               onChange={handleOnChangeEmail}
-               value={email}
-               errors={validateMessages.email}
-               rules={['notExist']}
-            />
+            <div className='py-2'>
+               <Input id="email" type="email" labelText="Adres email:"
+                  onChange={handleOnChangeEmail}
+                  value={email}
+                  errors={validateMessages.email}
+                  rules={['notExist']}
+               />
 
-            <Input id="password" type="password" labelText="Hasło:"
-               onChange={handleOnChangePassword}
-               value={password}
-               errors={validateMessages.password}
-               rules={['notCorrect']}
-            />
+               <Input id="password" type="password" labelText="Hasło:"
+                  onChange={handleOnChangePassword}
+                  value={password}
+                  errors={validateMessages.password}
+                  rules={['notCorrect']}
+               />
+            </div>
 
             <div className='d-flex flex-wrap pb-1'>
                <button type="submit" className='py-1 px-5'>Zaloguj się</button>

@@ -43,7 +43,7 @@ const RegisterForm = ({ handleOnClose }) => {
          shouldBeCloseOnOutsideClick={false}
       >
          <form method="post" onSubmit={handleOnSubmit}>
-            <div className='title'>Rejestracja</div>
+            <div id='page-title'>Rejestracja</div>
 
             <div className='py-2'>
                <Input id="email" type="email" labelText="Adres email:"
