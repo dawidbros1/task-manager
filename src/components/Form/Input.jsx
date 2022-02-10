@@ -1,4 +1,4 @@
-const Input = ({ id, type, labelText, onChange, value, errors = {}, rules = [] }) => {
+const Input = ({ id, type, labelText, value, onChange, errors = {}, rules = [], disabled = false }) => {
 
    const errorsBlock = rules.map((rule) => (
       errors.hasOwnProperty(rule) &&
@@ -12,7 +12,7 @@ const Input = ({ id, type, labelText, onChange, value, errors = {}, rules = [] }
    return (
       <div className="mb-1 d-flex flex-wrap box p-2">
          <label htmlFor={id}>{labelText}</label>
-         <input type={type} id={id} onChange={onChange} value={value} />
+         <input type={type} id={id} onChange={onChange} value={value} disabled={disabled} />
          {!isEmpty ? <div className="errors">{errorsBlock}</div> : null}
       </div>
    );
