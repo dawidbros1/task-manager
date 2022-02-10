@@ -3,18 +3,19 @@
    padding: 0;
 }
 
+body{
+   background-color: lightgray;
+}
+
 .container-fluid{
    margin: 0 !important;
    padding: 0 !important;
 }
 
-.blur{
-   filter: blur(5px);
+#page-title{
+	font-weight: bold;
+	text-align: center;
+	font-size: 21px;
+	padding-bottom: 6px;
 }
 
-.feedback{
-   color: green;
-   text-align: center;
-   font-weight: bold;
-   padding-bottom: 5px;
-}
