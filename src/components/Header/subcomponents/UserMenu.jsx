@@ -1,15 +1,15 @@
 import { useContext, useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { StoreContext } from "../../../store/StoreProvider";
 
 const UserMenu = () => {
-   const [isMenuActive, setIsMenuActive] = useState(false);
+   const navigate = useNavigate();
 
+   const [isMenuActive, setIsMenuActive] = useState(false);
    const { user, setUser } = useContext(StoreContext)
 
-   const logout = () => setUser(null)
-
+   const logout = () => { navigate("/"); setUser(null) }
    const handleToggleisMenuActive = () => setIsMenuActive((prev) => (!prev));
-
    const closeMenu = ({ target: { id } }) => id !== "wrapper" && setIsMenuActive(false);
 
    useEffect(() => {
@@ -23,7 +23,7 @@ const UserMenu = () => {
          <nav id="menu">
             <div id="wrapper" onClick={handleToggleisMenuActive}>{user.username}</div>
             <ul className={isMenuActive ? "d-block" : "d-none"}>
-               <li>Profil</li>
+               <li>Profil<Link to="/profile" /></li>
                <li onClick={logout}>Wyloguj</li>
             </ul>
          </nav>
