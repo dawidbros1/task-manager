@@ -3,10 +3,7 @@ import React, { useContext, useState } from 'react';
 import Modal from '../Modal/Modal';
 import Input from '../Form/Input';
 
-import Request from '../../helpers/request';
 import { StoreContext } from '../../store/StoreProvider';
-
-const request = new Request();
 
 const RegisterForm = ({ handleOnClose }) => {
    const [email, setEmail] = useState('');
@@ -26,7 +23,7 @@ const RegisterForm = ({ handleOnClose }) => {
       request.post('/auth/register', data, onSuccess, onFailure);
    }
 
-   const { setData } = useContext(StoreContext);
+   const { setData, request } = useContext(StoreContext);
 
    const onFailure = ({ validateMessages }) => setValidateMessages(validateMessages)
 
