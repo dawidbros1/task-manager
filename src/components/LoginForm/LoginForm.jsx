@@ -3,13 +3,11 @@ import React, { useContext, useEffect, useState } from 'react';
 import Modal from '../Modal/Modal';
 import Input from '../Form/Input';
 
-import Request from '../../helpers/request';
-
 import { StoreContext } from '../../store/StoreProvider';
 
-const request = new Request();
-
 const LoginForm = ({ handleOnClose }) => {
+   const { setStateByDataProperty, setUser, request } = useContext(StoreContext);
+
    const [email, setEmail] = useState('');
    const [password, setPassword] = useState('');
 
@@ -25,23 +23,19 @@ const LoginForm = ({ handleOnClose }) => {
       request.post('/auth/login', data, onSuccess, onFailure);
    }
 
-   const { setStateByDataProperty, setUser } = useContext(StoreContext);
-
-   useEffect(() => {
-      setStateByDataProperty('email', setEmail);
-      setStateByDataProperty('message', setMessage);
-   }, [])
-
-   const afterRegisterMessage = message !== null
-      ? <div className='feedback'>{message}</div>
-      : null;
-
    const onFailure = ({ validateMessages }) => setValidateMessages(validateMessages)
 
    const onSuccess = ({ data: { user } }) => {
       setUser(user);
       handleOnClose();
    };
+
+   useEffect(() => {
+      setStateByDataProperty('email', setEmail);
+      setStateByDataProperty('message', setMessage);
+   }, [])
+
+   const afterRegisterMessage = message && <div className='message'>{message}</div>
 
    return (
       <Modal
