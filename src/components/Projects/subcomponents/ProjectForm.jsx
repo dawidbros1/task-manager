@@ -5,8 +5,9 @@ import { StoreContext } from '../../../store/StoreProvider';
 import Input from "../../Form/Input";
 import Modal from "../../Modal/Modal";
 import Textarea from '../../Form/TextArea';
+import DeleteProjectForm from './DeleteProjectForm';
 
-const ProjectForm = ({ id = null, entryName = "", entryDescription = "", handleOnClose, action = null }) => {
+const ProjectForm = ({ id = null, entryName = "", entryDescription = "", handleOnClose, action = "create" }) => {
    const { projects, setProjects } = useContext(StoreContext);
 
    const [name, setName] = useState(entryName);
@@ -18,27 +19,50 @@ const ProjectForm = ({ id = null, entryName = "", entryDescription = "", handleO
 
    const handleOnSubmit = async event => {
       event.preventDefault();
-      // const data = { }
-      // request.post('/project/create', data, onSuccess, onFailure);
-      // console.log(action)
-
       onSuccess();
    }
 
    const onFailure = ({ validateMessages }) => setValidateMessages(validateMessages)
 
    const onSuccess = () => {
+      var data;
 
-      const project = {
+      const currentProject = {
          id: Math.floor(Math.random() * 100000),
          name, description
       }
 
-      let data = projects.map((project) => project);
-      data.push(project);
+      if (action === "create") {
+         data = projects.map((project) => project);
+         data.push(currentProject)
+      }
+      else if (action === "edit") {
+         data = projects.map(project => {
+            if (project.id !== id) return project
+            else return currentProject;
+         })
+      }
+
       setProjects(data);
       handleOnClose();
    };
+
+   const test = () => {
+      console.log("XD");
+   }
+
+   // DELETE PROJECT 
+   const [isDeleteProjectFormOpen, setIsDeleteProjectFormOpen] = useState(false);
+   const handleOpenDeleteProjectFrom = () => setIsDeleteProjectFormOpen(true);
+   const handleCloseDeleteProjectFrom = () => setIsDeleteProjectFormOpen(false);
+
+   const deleteProjectFormComponent = isDeleteProjectFormOpen &&
+      <DeleteProjectForm
+         handleOnClose={handleCloseDeleteProjectFrom}
+         id={id}
+         name={entryName}
+         closeEditForm={handleOnClose}
+      />;
 
    return (
       <Modal
@@ -46,7 +70,7 @@ const ProjectForm = ({ id = null, entryName = "", entryDescription = "", handleO
          shouldBeCloseOnOutsideClick={false}
       >
          <form method="post" onSubmit={handleOnSubmit}>
-            <div id='page-title'>Tworzenie projektu</div>
+            <div id='page-title'>{id ? "Edycja projektu" : "Tworzenie projektu"}</div>
 
             <div className='py-2'>
                <Input id="name" type="text" labelText="Nazwa projektu:"
@@ -65,10 +89,13 @@ const ProjectForm = ({ id = null, entryName = "", entryDescription = "", handleO
             </div>
 
             <div className='d-flex flex-wrap pb-1'>
-               <button type="submit" className='py-1 px-5'>Dodaj projekt</button>
+               <button type="submit" className='py-1 px-5'>{id ? "Zapisz zmiany" : "Dodaj projekt"}</button>
                <div className='mx-auto' />
+               {id ? <button onClick={handleOpenDeleteProjectFrom} type="button" className='py-1 px-3 me-2 btn-danger' >Usuń</button> : null}
                <button onClick={handleOnClose} type="button" className='py-1 px-3' >Anuluj</button>
             </div>
+
+            {deleteProjectFormComponent}
          </form>
       </Modal >
    );
