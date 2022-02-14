@@ -7,6 +7,8 @@ import Modal from "../../Modal/Modal";
 import Textarea from '../../Form/TextArea';
 
 const ProjectForm = ({ id = null, entryName = "", entryDescription = "", handleOnClose, action = null }) => {
+   const { projects, setProjects } = useContext(StoreContext);
+
    const [name, setName] = useState(entryName);
    const [description, setDescription] = useState(entryDescription);
    const [validateMessages, setValidateMessages] = useState('');
@@ -18,14 +20,24 @@ const ProjectForm = ({ id = null, entryName = "", entryDescription = "", handleO
       event.preventDefault();
       // const data = { }
       // request.post('/project/create', data, onSuccess, onFailure);
+      // console.log(action)
 
-      console.log(action)
+      onSuccess();
    }
 
    const onFailure = ({ validateMessages }) => setValidateMessages(validateMessages)
 
    const onSuccess = () => {
-      // handleOnClose();
+
+      const project = {
+         id: Math.floor(Math.random() * 100000),
+         name, description
+      }
+
+      let data = projects.map((project) => project);
+      data.push(project);
+      setProjects(data);
+      handleOnClose();
    };
 
    return (
@@ -37,7 +49,7 @@ const ProjectForm = ({ id = null, entryName = "", entryDescription = "", handleO
             <div id='page-title'>Tworzenie projektu</div>
 
             <div className='py-2'>
-               <Input id="name" type="email" labelText="Nazwa projektu:"
+               <Input id="name" type="text" labelText="Nazwa projektu:"
                   onChange={handleOnChangeName}
                   value={name}
                   errors={validateMessages.name}
