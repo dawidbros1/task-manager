@@ -4,18 +4,47 @@ import Request from '../helpers/request';
 
 export const StoreContext = createContext(null);
 
+// TEMP DATA
+
+const data = [
+	{
+		id: 1,
+		name: "Pierwszy project",
+		description: "Opis pierwszego"
+	},
+	{
+		id: 2,
+		name: "Drugi project",
+		description: ""
+	},
+	{
+		id: 3,
+		name: "Trzeci project",
+		description: "Opis pierwszego projektu"
+	},
+	{
+		id: 4,
+		name: "Czwarty project",
+		description: "Opis pierwszego projektu"
+	}
+]
+
+
+
 const StoreProvider = ({ children }) => {
 	const [data, setData] = useState({});
+	const [project, setProjects] = useState(data);
 
 	const request = new Request();
 	// const [user, setUser] = useState(null);
 
 	const [user, setUser] = useState({
-		created: "2022-02-08 11:57:56",
-		email: "konto@wp.pl",
 		id: "1",
-		password: "",
-		username: "konto"
+		username: "dawidbros1",
+		email: "dawidbros1@wp.pl",
+		sideKey: "cda4f72f0e5d2fe0b15112fbb1f1ff0fd539828468325ea1a3ded477b966e00e",
+		secretKey: "fc687939c01e324fab0d2e6867e912a07bfa7dc835005a2893fabba0407e7a48",
+		created: "2022-02-08 11:57:56"
 	});
 
 	const setStateByDataProperty = (property, setState) => {
@@ -28,6 +57,7 @@ const StoreProvider = ({ children }) => {
 	return (
 		<StoreContext.Provider value={{
 			user, setUser,
+			project, setProjects,
 			data, setStateByDataProperty, setData,
 			request,
 		}}>
