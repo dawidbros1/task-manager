@@ -14,16 +14,10 @@ const GuestMenu = () => {
    const handleCloseLoginForm = () => setIsLoginFormOpen(false);
 
    const registerFormComponent = isRegisterFormOpen &&
-      <RegisterForm
-         handleOnClose={handleCloseRegisterForm}
-         isModalOpen={isRegisterFormOpen}
-      />;
+      <RegisterForm handleOnClose={handleCloseRegisterForm} />;
 
    const loginFormComponent = isLoginFormOpen &&
-      <LoginForm
-         handleOnClose={handleCloseLoginForm}
-         isModalOpen={isLoginFormOpen}
-      />;
+      <LoginForm handleOnClose={handleCloseLoginForm} />;
 
    return (
       <>
