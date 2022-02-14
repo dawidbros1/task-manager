@@ -9,27 +9,30 @@ import ProjectForm from "./subcomponents/ProjectForm";
 
 
 const Projects = () => {
-   const { user, projects, setProjects } = useContext(StoreContext)
+   const { projects } = useContext(StoreContext);
 
-   const projectsComponent = projects.map((project) => <Project key={project.id} {...project} />);
+   const projectsComponent = Object.keys(projects).length !== 0
+      ? projects.map((project) => <Project key={project.id} {...project} />)
+      : null;
 
-   const [isProjectFormOpen, setIsProjectFormOpen] = useState(false);
+   const [isCreateProjectFormOpen, setIsCreateProjectFormOpen] = useState(false);
 
+   const handleOpenCreateProjectFrom = () => setIsCreateProjectFormOpen(true);
+   const handleCloseCreateProjectFrom = () => {
+      console.log("Projekt - CREATE");
+      setIsCreateProjectFormOpen(false);
+   }
 
-   const handleOpenProjectFrom = () => setIsProjectFormOpen(true);
-   const handleCloseProjectFrom = () => setIsProjectFormOpen(false);
-
-   const projectFormComponent = isProjectFormOpen &&
+   const projectFormComponent = isCreateProjectFormOpen &&
       <ProjectForm
-         handleOnClose={handleCloseProjectFrom}
-         isModalOpen={isProjectFormOpen}
-         action="/project/create"
+         handleOnClose={handleCloseCreateProjectFrom}
+         action="create"
       />;
 
    return (
       <main id="projects">
          <div id="page-title" className="border-bottom">Moje projekty</div>
-         <button id="add" onClick={handleOpenProjectFrom}>Dodaj nowy</button>
+         <button id="add" onClick={handleOpenCreateProjectFrom}>Dodaj nowy</button>
 
          {projectsComponent}
          {projectFormComponent}
