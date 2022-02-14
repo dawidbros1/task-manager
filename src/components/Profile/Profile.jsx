@@ -5,7 +5,7 @@ import "./Profile.scss"
 
 const Profile = () => {
    return (
-      <div id="profile" className="p-2">
+      <main id="profile">
          <div id="page-title">Ustawienia profilu</div>
 
          <div className="border border-2 p-2 mb-2">
@@ -15,7 +15,7 @@ const Profile = () => {
          <div className="border border-2 p-2">
             <ChangePasswordForm />
          </div>
-      </div>
+      </main>
    )
 }
 
