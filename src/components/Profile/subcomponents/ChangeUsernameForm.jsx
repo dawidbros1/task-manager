@@ -15,15 +15,17 @@ const ChangeUsernameForm = () => {
 
    const handleOnSubmit = async event => {
       event.preventDefault();
-      setValidateMessages({});
 
-      const data = { id: user.id, username }
+      const { id, sideKey } = user;
+      const data = { id, username, sideKey }
+
       request.post('/user/updateUsername', data, onSuccess, onFailure);
    }
 
    const onFailure = ({ validateMessages }) => setValidateMessages(validateMessages)
 
    const onSuccess = () => {
+      setValidateMessages({});
       setUser({ ...user, username })
       setMessage("Nazwa użytkownika została zmieniona")
    }

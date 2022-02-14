@@ -18,17 +18,16 @@ const ChangePasswordForm = () => {
 
    const handleOnSubmit = async event => {
       event.preventDefault();
-      setValidateMessages({});
 
-      const data = { id: user.id, currentPassword, password, repeatPassword }
+      const { id, sideKey } = user;
+      const data = { id, currentPassword, password, repeatPassword, sideKey }
+
       request.post('/user/updatePassword', data, onSuccess, onFailure);
-
-      console.log(validateMessages);
    }
 
    const onFailure = ({ validateMessages }) => setValidateMessages(validateMessages)
-
    const onSuccess = () => {
+      setValidateMessages({});
       setMessage("Hasło użytkownika zostało zmienione");
    }
 
