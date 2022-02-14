@@ -4,36 +4,32 @@ import Request from '../helpers/request';
 
 export const StoreContext = createContext(null);
 
-// TEMP DATA
-
-const data = [
-	{
-		id: 1,
-		name: "Pierwszy project",
-		description: "Opis pierwszego"
-	},
-	{
-		id: 2,
-		name: "Drugi project",
-		description: ""
-	},
-	{
-		id: 3,
-		name: "Trzeci project",
-		description: "Opis pierwszego projektu"
-	},
-	{
-		id: 4,
-		name: "Czwarty project",
-		description: "Opis pierwszego projektu"
-	}
-]
-
-
-
 const StoreProvider = ({ children }) => {
 	const [data, setData] = useState({});
-	const [project, setProjects] = useState(data);
+
+	// DATA TO TEST
+	const [projects, setProjects] = useState([
+		{
+			id: 1,
+			name: "Pierwszy project",
+			description: "Opis pierwszego"
+		},
+		{
+			id: 2,
+			name: "Drugi project",
+			description: ""
+		},
+		{
+			id: 3,
+			name: "Trzeci project",
+			description: "Opis pierwszego projektu"
+		},
+		{
+			id: 4,
+			name: "Czwarty project",
+			description: "Opis pierwszego projektu"
+		}]
+	);
 
 	const request = new Request();
 	// const [user, setUser] = useState(null);
@@ -57,7 +53,7 @@ const StoreProvider = ({ children }) => {
 	return (
 		<StoreContext.Provider value={{
 			user, setUser,
-			project, setProjects,
+			projects, setProjects,
 			data, setStateByDataProperty, setData,
 			request,
 		}}>
