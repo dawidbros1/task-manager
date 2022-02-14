@@ -19,6 +19,7 @@ const UserMenu = () => {
 
    return (
       <>
+         <Link to="/projects">Moje projekty</Link>
          <div className="mx-auto"></div>
          <nav id="menu">
             <div id="wrapper" onClick={handleToggleisMenuActive}>{user.username}</div>
