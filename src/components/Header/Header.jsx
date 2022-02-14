@@ -13,7 +13,7 @@ const Header = () => {
 
 	return (
 		<header id="header" className="d-flex flex-wrap">
-			<Link to="/">Strona głowna</Link>
+			<Link to="/" className="fw-bold">Strona głowna</Link>
 			{Menu}
 		</header>
 	);
