@@ -5,35 +5,11 @@ import Request from '../helpers/request';
 export const StoreContext = createContext(null);
 
 const StoreProvider = ({ children }) => {
-	const [data, setData] = useState({});
-
-	// DATA TO TEST
-	const [projects, setProjects] = useState([
-		{
-			id: 1,
-			name: "Pierwszy project",
-			description: "Opis pierwszego"
-		},
-		{
-			id: 2,
-			name: "Drugi project",
-			description: ""
-		},
-		{
-			id: 3,
-			name: "Trzeci project",
-			description: "Opis pierwszego projektu"
-		},
-		{
-			id: 4,
-			name: "Czwarty project",
-			description: "Opis pierwszego projektu"
-		}]
-	);
-
+	const [data, setData] = useState({ areProjectsLoaded: false });
+	const [projects, setProjects] = useState({});
 	const request = new Request();
-	// const [user, setUser] = useState(null);
 
+	// const [user, setUser] = useState(null);
 	const [user, setUser] = useState({
 		id: "1",
 		username: "dawidbros1",

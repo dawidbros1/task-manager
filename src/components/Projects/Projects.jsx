@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { StoreContext } from "../../store/StoreProvider";
 
@@ -9,7 +9,19 @@ import ProjectForm from "./subcomponents/ProjectForm";
 
 
 const Projects = () => {
-   const { projects } = useContext(StoreContext);
+   const { projects, setProjects, data, setData, user, request } = useContext(StoreContext);
+
+   useEffect(() => {
+      if (data.areProjectsLoaded === false) {
+         request.post('/project/get', { user_id: user.id, sideKey: user.sideKey }, onLoadProjects,
+            () => { console.log("UPS! Coś poszło nie tak.") });
+      }
+   }, [])
+
+   const onLoadProjects = ({ data }) => {
+      setProjects(data.projects)
+      setData({ ...data, areProjectsLoaded: true })
+   }
 
    const projectsComponent = Object.keys(projects).length !== 0
       ? projects.map((project) => <Project key={project.id} {...project} />)
