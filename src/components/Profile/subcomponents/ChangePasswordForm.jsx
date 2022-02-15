@@ -20,7 +20,7 @@ const ChangePasswordForm = () => {
       event.preventDefault();
 
       const { id, sideKey } = user;
-      const data = { id, currentPassword, password, repeatPassword, sideKey }
+      const data = { user_id: id, currentPassword, password, repeatPassword, sideKey }
 
       request.post('/user/updatePassword', data, onSuccess, onFailure);
    }

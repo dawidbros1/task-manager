@@ -17,7 +17,7 @@ const ChangeUsernameForm = () => {
       event.preventDefault();
 
       const { id, sideKey } = user;
-      const data = { id, username, sideKey }
+      const data = { user_id: id, username, sideKey }
 
       request.post('/user/updateUsername', data, onSuccess, onFailure);
    }
