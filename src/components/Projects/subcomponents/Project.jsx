@@ -7,7 +7,6 @@ const Project = ({ id, name, description }) => {
 
    const handleOpenEditProjectFrom = () => setIsEditProjectFormOpen(true);
    const handleCloseEditProjectFrom = () => {
-      console.log("Projekt - EDIT")
       setIsEditProjectFormOpen(false);
    }
 

@@ -47,10 +47,6 @@ const ProjectForm = ({ id = null, entryName = "", entryDescription = "", handleO
       handleOnClose();
    };
 
-   const test = () => {
-      console.log("XD");
-   }
-
    // DELETE PROJECT 
    const [isDeleteProjectFormOpen, setIsDeleteProjectFormOpen] = useState(false);
    const handleOpenDeleteProjectFrom = () => setIsDeleteProjectFormOpen(true);
@@ -61,7 +57,6 @@ const ProjectForm = ({ id = null, entryName = "", entryDescription = "", handleO
          handleOnClose={handleCloseDeleteProjectFrom}
          id={id}
          name={entryName}
-         closeEditForm={handleOnClose}
       />;
 
    return (

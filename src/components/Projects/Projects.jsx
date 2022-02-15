@@ -18,10 +18,7 @@ const Projects = () => {
    const [isCreateProjectFormOpen, setIsCreateProjectFormOpen] = useState(false);
 
    const handleOpenCreateProjectFrom = () => setIsCreateProjectFormOpen(true);
-   const handleCloseCreateProjectFrom = () => {
-      console.log("Projekt - CREATE");
-      setIsCreateProjectFormOpen(false);
-   }
+   const handleCloseCreateProjectFrom = () => setIsCreateProjectFormOpen(false);
 
    const projectFormComponent = isCreateProjectFormOpen &&
       <ProjectForm
