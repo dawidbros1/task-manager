@@ -14,7 +14,7 @@ const Projects = () => {
    useEffect(() => {
       if (data.areProjectsLoaded === false) {
          request.post('/project/get', { user_id: user.id, sideKey: user.sideKey }, onLoadProjects,
-            () => { console.log("UPS! Coś poszło nie tak.") });
+            ({ description }) => { console.log(description) });
       }
    }, [])
 
@@ -23,7 +23,7 @@ const Projects = () => {
       setData({ ...data, areProjectsLoaded: true })
    }
 
-   const projectsComponent = Object.keys(projects).length !== 0
+   const projectsComponent = projects.length !== 0
       ? projects.map((project) => <Project key={project.id} {...project} />)
       : null;
 
