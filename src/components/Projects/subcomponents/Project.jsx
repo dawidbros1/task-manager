@@ -16,7 +16,7 @@ const Project = ({ id, name, description }) => {
          id={id}
          entryName={name}
          entryDescription={description}
-         action="edit"
+         action="update"
       />;
 
    return (
