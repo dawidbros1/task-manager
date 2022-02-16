@@ -3,12 +3,18 @@ import { Link, useNavigate } from "react-router-dom";
 import { StoreContext } from "../../../store/StoreProvider";
 
 const UserMenu = () => {
-   const navigate = useNavigate();
+   const { user, setUser, setProjects, setData } = useContext(StoreContext)
 
    const [isMenuActive, setIsMenuActive] = useState(false);
-   const { user, setUser } = useContext(StoreContext)
 
-   const logout = () => { navigate("/"); setUser(null) }
+   const navigate = useNavigate();
+
+   const logout = () => {
+      navigate("/");
+      setProjects([]);
+      setData({ areProjectsLoaded: false });
+      setUser(null)
+   }
    const handleToggleisMenuActive = () => setIsMenuActive((prev) => (!prev));
    const closeMenu = ({ target: { id } }) => id !== "wrapper" && setIsMenuActive(false);
 
