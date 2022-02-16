@@ -38,7 +38,7 @@ const ProjectForm = ({ id = null, entryName = "", entryDescription = "", handleO
       else if (action === "update") {
          copy = projects.map(project => {
             if (project.id !== id) return project
-            else return data.project;
+            else return getCurrentProject();
          })
       }
 
