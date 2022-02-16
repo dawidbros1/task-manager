@@ -4,11 +4,20 @@ import { StoreContext } from "../../../store/StoreProvider";
 import Modal from "../../Modal/Modal";
 
 const DeleteProjectForm = ({ id, name, handleOnClose }) => {
-   const { projects, setProjects } = useContext(StoreContext);
+   const { user, projects, setProjects, request } = useContext(StoreContext);
 
    const handleOnDelete = () => {
-      const data = projects.filter(project => project.id !== id);
-      setProjects(data);
+      const input = { id, user_id: user.id, sideKey: user.sideKey, }
+      request.post(`/project/delete`, input, onSuccess, onFailure);
+   }
+
+   const onSuccess = () => {
+      const newProjects = projects.filter(project => project.id !== id);
+      setProjects(newProjects);
+   }
+
+   const onFailure = ({ description }) => {
+      console.log(description)
    }
 
    return (

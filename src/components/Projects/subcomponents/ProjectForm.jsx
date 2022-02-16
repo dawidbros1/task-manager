@@ -23,7 +23,6 @@ const ProjectForm = ({ id = null, entryName = "", entryDescription = "", handleO
    }
 
    const onFailure = ({ status, validateMessages, description }) => {
-
       if (status === 403) setValidateMessages(validateMessages)
       console.log(description)
    }
