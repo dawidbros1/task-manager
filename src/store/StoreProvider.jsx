@@ -6,7 +6,7 @@ export const StoreContext = createContext(null);
 
 const StoreProvider = ({ children }) => {
 	const [data, setData] = useState({ areProjectsLoaded: false });
-	const [projects, setProjects] = useState({});
+	const [projects, setProjects] = useState([]);
 	const request = new Request();
 
 	// const [user, setUser] = useState(null);
