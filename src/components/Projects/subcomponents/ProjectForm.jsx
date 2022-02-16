@@ -8,7 +8,7 @@ import Textarea from '../../Form/TextArea';
 import DeleteProjectForm from './DeleteProjectForm';
 
 const ProjectForm = ({ id = null, entryName = "", entryDescription = "", handleOnClose, action = "create" }) => {
-   const { projects, setProjects } = useContext(StoreContext);
+   const { user, projects, setProjects, request } = useContext(StoreContext);
 
    const [name, setName] = useState(entryName);
    const [description, setDescription] = useState(entryDescription);
@@ -19,33 +19,34 @@ const ProjectForm = ({ id = null, entryName = "", entryDescription = "", handleO
 
    const handleOnSubmit = async event => {
       event.preventDefault();
-      onSuccess();
+      request.post(`/project/${action}`, getCurrentProject(), onSuccess, onFailure);
    }
 
-   const onFailure = ({ validateMessages }) => setValidateMessages(validateMessages)
+   const onFailure = ({ status, validateMessages, description }) => {
 
-   const onSuccess = () => {
-      var data;
+      if (status === 403) setValidateMessages(validateMessages)
+      console.log(description)
+   }
 
-      const currentProject = {
-         id: Math.floor(Math.random() * 100000),
-         name, description
-      }
+   const onSuccess = ({ data }) => {
+      var copy;
 
       if (action === "create") {
-         data = projects.map((project) => project);
-         data.push(currentProject)
+         copy = projects.map((project) => project);
+         copy.push(data.project);
       }
-      else if (action === "edit") {
-         data = projects.map(project => {
+      else if (action === "update") {
+         copy = projects.map(project => {
             if (project.id !== id) return project
-            else return currentProject;
+            else return data.project;
          })
       }
 
-      setProjects(data);
+      setProjects(copy);
       handleOnClose();
    };
+
+   const getCurrentProject = () => ({ id, user_id: user.id, name, description, sideKey: user.sideKey })
 
    // DELETE PROJECT 
    const [isDeleteProjectFormOpen, setIsDeleteProjectFormOpen] = useState(false);
