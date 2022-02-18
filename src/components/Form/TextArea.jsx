@@ -12,7 +12,7 @@ const Textarea = ({ id, type, labelText, value, onChange, errors = {}, rules = [
    return (
       <div className="mb-1 d-flex flex-wrap box p-2">
          <label htmlFor={id}>{labelText}</label>
-         <textarea type={type} id={id} onChange={onChange} value={value} />
+         <textarea rows={5} type={type} id={id} onChange={onChange} value={value} />
          {!isEmpty ? <div className="errors">{errorsBlock}</div> : null}
       </div>
    );
