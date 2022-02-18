@@ -21,24 +21,22 @@
    }
 
    .project{
-      position: relative;
-
-      border: 1px solid black;
+      border-bottom: 1px solid black;
       padding: 3px;
-      margin-bottom: 5px;
-      
-      .description{
-         max-width: 80%;
-      }
 
-      button.edit{
-         position: absolute;
-         right: 5px; 
-         bottom: 2px;
-
+      button{
          font-size: 12px;
          background-color: lightblue;
          text-transform: uppercase;
+         margin-right: 3px;
       }
+   }
+}
+
+#project_details{
+   .date{
+      position: absolute;
+      right: 0px;
+      top: 0px;
    }
 }
