@@ -12,19 +12,18 @@ import './Form.scss';
 
 const App = () => {
   return (
-    <div className="container-fluid">
-      <StoreProvider>
-        <Router>
-          <Header />
-          <Routes>
-            <Route exact path="/" element={<HomePage />} />
-            <Route exact path="/projects" element={<Projects />} />
-            <Route exact path="/profile" element={<Profile />} />
-            {/* <Route path="*" element={<NotFound/>}/> */}
-          </Routes>
-        </Router>
-      </StoreProvider>
-    </div >
+    <StoreProvider>
+      {/* <Router basename='/task-manager/frontend/build'> */}
+      <Router basename='/'>
+        <Header />
+        <Routes>
+          <Route exact path="/" element={<HomePage />} />
+          <Route exact path="/projects" element={<Projects />} />
+          <Route exact path="/profile" element={<Profile />} />
+          {/* <Route path="*" element={<NotFound/>}/> */}
+        </Routes>
+      </Router>
+    </StoreProvider>
   );
 }
 
