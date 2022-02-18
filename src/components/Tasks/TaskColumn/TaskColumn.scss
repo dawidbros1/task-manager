@@ -1,0 +1,25 @@
+.task_column{
+   .title{
+      font-weight: bold;
+      text-align: center;
+      border-bottom: 1px solid black;
+      padding: 5px;
+   }
+
+   border-right: 1px solid black;
+
+   .title:last-child{
+      border-right: none;
+   }
+
+   /* 
+      header: 45px
+      uppersection: 35px [title] + 3px padding [up/dowm] = 41px
+   */
+
+   min-height: calc(100vh - 45px - 41px);
+}
+
+.task_column:last-child{
+   border-right: none;
+}

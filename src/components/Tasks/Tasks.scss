@@ -1,0 +1,23 @@
+#tasks{
+   background-color: yellow;
+
+   #upper-section{
+      background-color: red;
+      padding: 3px 0;
+
+      .title{
+         font-weight: bold;
+         text-align: center;
+         font-size: 21px;
+         height: 35px;
+      }
+   }
+
+   
+   #add_task{
+      position: absolute;;
+      right:0;
+      top:4px;
+      height: calc(100% - 8px);
+   }
+}
