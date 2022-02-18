@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ProjectForm from "./ProjectForm";
 import ProjectDetails from "./ProjectDetails"
+import { Link } from "react-router-dom";
 
 const Project = ({ id, name, description, created }) => {
    /* EDIT PROJECT FORM */
@@ -32,9 +33,8 @@ const Project = ({ id, name, description, created }) => {
 
    return (
       <div className="project col-12 col-lg-6">
-         <div className="d-flex flex-wrap m-2">
-            <div className="fw-bold">{name}</div>
-            <div className="mx-auto" />
+         <div className="d-flex flex-wrap">
+            <div className="title py-1">{name} <Link to={`/project/${id}`} /></div>
 
             <button className="details" onClick={handleOpenProjectDetails}> Szczegóły</button>
             <button className="edit" onClick={handleOpenEditProjectFrom}> Edytuj</button>

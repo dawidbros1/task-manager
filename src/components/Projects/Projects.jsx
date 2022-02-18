@@ -15,7 +15,7 @@ const Projects = () => {
       setProjects([{
          id: 1,
          user_id: 1,
-         name: "Nazwa projektu",
+         name: "Nazwa projektu 22222222222222",
          description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error quo vero non nostrum iure iste alias officia incidunt, excepturi facere, molestias qui molestiae veritatis quam illum tempore velit nihil mollitia.",
          created: "2022-02-14 08:52:35"
       },
@@ -34,35 +34,35 @@ const Projects = () => {
          created: "2022-02-14 08:52:35"
       },
       {
-         id: 1,
+         id: 4,
          user_id: 1,
          name: "Nazwa projektu",
          description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error quo vero non nostrum iure iste alias officia incidunt, excepturi facere, molestias qui molestiae veritatis quam illum tempore velit nihil mollitia.",
          created: "2022-02-14 08:52:35"
       },
       {
-         id: 2,
+         id: 5,
          user_id: 1,
          name: "Nazwa projektu",
          description: "Opis mojego projektu",
          created: "2022-02-14 08:52:35"
       },
       {
-         id: 3,
+         id: 6,
          user_id: 1,
          name: "Nazwa projektu",
          description: "Opis mojego projektu",
          created: "2022-02-14 08:52:35"
       },
       {
-         id: 1,
+         id: 7,
          user_id: 1,
          name: "Nazwa projektu",
          description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error quo vero non nostrum iure iste alias officia incidunt, excepturi facere, molestias qui molestiae veritatis quam illum tempore velit nihil mollitia.",
          created: "2022-02-14 08:52:35"
       },
       {
-         id: 2,
+         id: 8,
          user_id: 1,
          name: "Nazwa projektu",
          description: "Opis mojego projektu",
@@ -102,7 +102,7 @@ const Projects = () => {
          <div id="page-title" className="border-bottom">Moje projekty</div>
          <button id="add" onClick={handleOpenCreateProjectFrom}>Dodaj nowy</button>
 
-         <div class="d-flex flex-wrap">
+         <div className="d-flex flex-wrap">
             {projectsComponent}
          </div>
 
