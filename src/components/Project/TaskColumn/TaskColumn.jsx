@@ -1,10 +1,9 @@
 
-import Task from "../Task";
+import Task from "./Task";
 
 import "./TaskColumn.scss";
 
 const TaskColumn = ({ name, tasks = [] }) => {
-
    const areTasks = tasks.length ? true : false;
    const TasksList = tasks.map(task => <Task key={task.id} {...task} />)
 

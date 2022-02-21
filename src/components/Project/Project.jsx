@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import TaskColumn from "./TaskColumn";
-import TaskForm from "./TaskForm";
+import CreateTaskForm from "./Forms/CreateTaskForm";
 
 import "./Project.scss";
 import { StoreContext } from "../../store/StoreProvider";
@@ -17,45 +17,17 @@ const Project = () => {
          {
             id: 1,
             user_id: 1,
-            name: "Nowe zadanie 1",
+            name: "Nowe zadanie numer 1",
             description: "Opis nowego zadania",
             status: 0
          },
          {
             id: 2,
             user_id: 1,
-            name: "Nowe zadanie  zadanie zadaniezadaniezadaniezadaniezadaniezadaniev  zadaniezadaniezadaniezadaniezadaniezadaniev zadaniezadaniezadaniezadaniezadaniezadaniev zadaniezadaniezadaniezadaniezadaniezadaniev zadaniezadaniezadaniezadaniezadaniezadaniev zadaniezadaniezadaniezadaniezadaniezadaniev zadaniezadaniezadaniezadaniezadaniezadaniev zadanie zadanie 2",
+            name: "Zadanie numer dwa",
             description: "W trakcie zadania",
             status: 0
          },
-         {
-            id: 3,
-            user_id: 1,
-            name: "Nowe zadanie  zadanie zadaniezadaniezadaniezadaniezadaniezadaniev  zadaniezadaniezadaniezadaniezadaniezadaniev zadaniezadaniezadaniezadaniezadaniezadaniev zadaniezadaniezadaniezadaniezadaniezadaniev zadaniezadaniezadaniezadaniezadaniezadaniev zadaniezadaniezadaniezadaniezadaniezadaniev zadaniezadaniezadaniezadaniezadaniezadaniev zadanie zadanie 2",
-            description: "Zadanie zakończone",
-            status: 0
-         },
-         {
-            id: 4,
-            user_id: 1,
-            name: "Nowe zadanie  zadanie zadaniezadaniezadaniezadaniezadaniezadaniev  zadaniezadaniezadaniezadaniezadaniezadaniev zadaniezadaniezadaniezadaniezadaniezadaniev zadaniezadaniezadaniezadaniezadaniezadaniev zadaniezadaniezadaniezadaniezadaniezadaniev zadaniezadaniezadaniezadaniezadaniezadaniev zadaniezadaniezadaniezadaniezadaniezadaniev zadanie zadanie 23",
-            description: "Opis nowego zadania",
-            status: 0
-         },
-         {
-            id: 5,
-            user_id: 1,
-            name: "Nowe zadanie  zadanie zadaniezadaniezadaniezadaniezadaniezadaniev  zadaniezadaniezadaniezadaniezadaniezadaniev zadaniezadaniezadaniezadaniezadaniezadaniev zadaniezadaniezadaniezadaniezadaniezadaniev zadaniezadaniezadaniezadaniezadaniezadaniev zadaniezadaniezadaniezadaniezadaniezadaniev zadaniezadaniezadaniezadaniezadaniezadaniev zadanie zadanie 25",
-            description: "W trakcie zadania",
-            status: 0
-         },
-         {
-            id: 6,
-            user_id: 1,
-            name: "Nowe zadanie 3 25  Nowe zadanie 3 25  Nowe zadanie 3 25  Nowe zadanie 3 25  Nowe zadanie 3 25  Nowe zadanie 3 25  Nowe zadanie 3 25 KONIEC",
-            description: "Zadanie zakończone",
-            status: 0
-         }
       ])
    }, [])
 
@@ -65,7 +37,7 @@ const Project = () => {
    const handleCloseCreateTaskFrom = () => setIsCreateTaskFormOpen(false);
 
    const taskFormComponent = isCreateTaskFormOpen &&
-      <TaskForm
+      <CreateTaskForm
          handleOnClose={handleCloseCreateTaskFrom}
          action="create"
       />;
