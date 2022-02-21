@@ -1,0 +1,21 @@
+.task{
+   padding: 3px;
+
+   margin-bottom: 5px;
+   
+   border: 1px solid black;
+
+   background-color: white;
+   transition: background-color .5s;
+
+
+   .name{
+      font-size: 13px;
+      padding-left: 2px;
+   }
+}
+
+.task:hover{
+   cursor: pointer;
+   background-color: #CDD;
+}

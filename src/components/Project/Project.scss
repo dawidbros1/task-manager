@@ -1,5 +1,15 @@
-#tasks{
-   background-color: yellow;
+#project{
+   #background{
+      position: absolute;
+      left: 0;
+      top:0;
+      background-color: yellow;
+
+      width: 100vw;
+      height: 100vh;
+
+      z-index: -100;
+   }
 
    #upper-section{
       background-color: red;
@@ -13,7 +23,6 @@
       }
    }
 
-   
    #add_task{
       position: absolute;;
       right:0;
