@@ -7,6 +7,7 @@ export const StoreContext = createContext(null);
 const StoreProvider = ({ children }) => {
 	const [data, setData] = useState({ areProjectsLoaded: false });
 	const [projects, setProjects] = useState([]);
+	const [tasks, setTasks] = useState([]);
 	const request = new Request();
 
 	// const [user, setUser] = useState(null);
@@ -31,6 +32,7 @@ const StoreProvider = ({ children }) => {
 			user, setUser,
 			projects, setProjects,
 			data, setStateByDataProperty, setData,
+			tasks, setTasks,
 			request,
 		}}>
 			{children}
