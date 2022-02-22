@@ -20,8 +20,11 @@ const Task = ({ id, status, name, description }) => {
 
    return (
       <>
-         <div className="task" onClick={handleOpenEditTaskFrom}>
-            <div className="name">{name}</div>
+         <div className="task" >
+            <div className="d-flex">
+               <div className="name">{name}</div>
+               <img onClick={handleOpenEditTaskFrom} className="settings" src="./../images/settings.png" alt="settings icon" />
+            </div>
          </div>
 
          {editTaskFormComponent}
