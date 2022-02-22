@@ -11,11 +11,13 @@ const EditTaskForm = ({ id, entryName, entryDescription, entryStatus, projectId,
 
    const [name, setName] = useState(entryName);
    const [description, setDescription] = useState(entryDescription);
+   const [status, setStatus] = useState(entryStatus);
    const [validateMessages, setValidateMessages] = useState('');
 
    const handleOnChangeName = ({ target: { value } }) => setName(value);
    const handleOnChangeDescription = ({ target: { value } }) => setDescription(value);
 
+   /* ON SUBMIT SECTION */
    const handleOnSubmit = async event => {
       event.preventDefault();
       // request.post(`/Task/${action}`, getCurrentTask(), onSuccess, onFailure);
@@ -23,7 +25,7 @@ const EditTaskForm = ({ id, entryName, entryDescription, entryStatus, projectId,
    }
 
    const onSuccess = () => {
-      const newTask = { id, name, description, status: 1 } // PROJECT_ID
+      const newTask = { id, name, description, status } // PROJECT_ID
 
       const updatedTasks = tasks.map(task => {
          if (task.id !== id) return task
@@ -34,7 +36,7 @@ const EditTaskForm = ({ id, entryName, entryDescription, entryStatus, projectId,
       handleOnClose();
    }
 
-   // DELETE TASK 
+   /* DELETE TASK SECTION */
    const [isDeleteTaskFormOpen, setIsDeleteTaskFormOpen] = useState(false);
    const handleOpenDeleteTaskFrom = () => setIsDeleteTaskFormOpen(true);
    const handleCloseDeleteTaskFrom = () => setIsDeleteTaskFormOpen(false);
@@ -46,6 +48,22 @@ const EditTaskForm = ({ id, entryName, entryDescription, entryStatus, projectId,
          name={entryName}
       />;
 
+   /* SELECT STATUS SECTION */
+   const options = [
+      { status: 0, name: "Nowe zadanie" },
+      { status: 1, name: "W trakcie wykonywania" },
+      { status: 2, name: "W trakcie testowania" },
+      { status: 3, name: "Zakończono" }
+   ]
+
+   const optionsComponent = options.map(option => {
+      const selected = option.status === status ? " selected" : "";
+      const classNames = `option${selected}`;
+
+      const handleClick = () => setStatus(option.status)
+
+      return (<div key={option.status} onClick={handleClick} className={classNames}>{option.name}</div>)
+   })
 
    return (
       <Modal
@@ -62,6 +80,11 @@ const EditTaskForm = ({ id, entryName, entryDescription, entryStatus, projectId,
                   errors={validateMessages.name}
                   rules={['between']}
                />
+
+               <div className="p-2 d-flex flex-wrap mb-1 box" id="status_box">
+                  <label className="w-100 mb-1">Wybierz status zadania:</label>
+                  {optionsComponent}
+               </div>
 
                <Textarea id="description" type="text" labelText="Opis zadania:"
                   onChange={handleOnChangeDescription}

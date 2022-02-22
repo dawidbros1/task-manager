@@ -21,13 +21,13 @@ const Project = () => {
             description: "Opis nowego zadania",
             status: 0
          },
-         {
-            id: 2,
-            user_id: 1,
-            name: "Zadanie numer dwa",
-            description: "W trakcie zadania",
-            status: 0
-         },
+         // {
+         //    id: 2,
+         //    user_id: 1,
+         //    name: "Zadanie numer dwa",
+         //    description: "W trakcie zadania",
+         //    status: 0
+         // },
       ])
    }, [])
 
@@ -36,15 +36,16 @@ const Project = () => {
    const handleOpenCreateTaskFrom = () => setIsCreateTaskFormOpen(true);
    const handleCloseCreateTaskFrom = () => setIsCreateTaskFormOpen(false);
 
-   const taskFormComponent = isCreateTaskFormOpen &&
+   const createTaskFormComponent = isCreateTaskFormOpen &&
       <CreateTaskForm
          handleOnClose={handleCloseCreateTaskFrom}
          action="create"
       />;
 
-   const newTasks = tasks.filter(task => task.status === 0)
-   const inProgressTasks = tasks.filter(task => task.status === 1)
-   const finishedTasks = tasks.filter(task => task.status === 2)
+   const newTasks = tasks.filter(task => task.status === 0);
+   const inProgressTasks = tasks.filter(task => task.status === 1);
+   const inTest = tasks.filter(task => task.status === 2);
+   const finishedTasks = tasks.filter(task => task.status === 3);
 
    /*
       ! Instrukcja z użyciem API !
@@ -63,13 +64,13 @@ const Project = () => {
          </div>
 
          <div className="d-flex p-2">
-            <TaskColumn name="Nowe zadania" tasks={newTasks} />
-            <TaskColumn name="Zadania w trakcie" tasks={inProgressTasks} />
-            <TaskColumn name="W trakcie testowania" tasks={[]} />
-            <TaskColumn name="Zadania zakończone" tasks={finishedTasks} />
+            <TaskColumn key={1} name="Nowe zadania" tasks={newTasks} />
+            <TaskColumn key={2} name="Zadania w trakcie" tasks={inProgressTasks} />
+            <TaskColumn key={3} name="W trakcie testowania" tasks={inTest} />
+            <TaskColumn key={4} name="Zadania zakończone" tasks={finishedTasks} />
          </div>
 
-         {taskFormComponent}
+         {createTaskFormComponent}
       </main>
    )
 }
