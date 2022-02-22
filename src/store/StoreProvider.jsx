@@ -10,6 +10,13 @@ const StoreProvider = ({ children }) => {
 	const [tasks, setTasks] = useState([]);
 	const request = new Request();
 
+	const taskStatuses = [
+		{ status: 0, name: "Nowe zadanie" },
+		{ status: 1, name: "W trakcie wykonywania" },
+		{ status: 2, name: "W trakcie testowania" },
+		{ status: 3, name: "Zakończono" }
+	]
+
 	// const [user, setUser] = useState(null);
 	const [user, setUser] = useState({
 		id: "1",
@@ -33,7 +40,7 @@ const StoreProvider = ({ children }) => {
 			projects, setProjects,
 			data, setStateByDataProperty, setData,
 			tasks, setTasks,
-			request,
+			request, taskStatuses,
 		}}>
 			{children}
 		</StoreContext.Provider>

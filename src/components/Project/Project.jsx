@@ -8,7 +8,7 @@ import "./Project.scss";
 import { StoreContext } from "../../store/StoreProvider";
 
 const Project = () => {
-   const { tasks, setTasks } = useContext(StoreContext);
+   const { tasks, setTasks, taskStatuses } = useContext(StoreContext);
 
    const { id } = useParams();
 
@@ -42,20 +42,24 @@ const Project = () => {
          action="create"
       />;
 
-   const newTasks = tasks.filter(task => task.status === 0);
-   const inProgressTasks = tasks.filter(task => task.status === 1);
-   const inTest = tasks.filter(task => task.status === 2);
-   const finishedTasks = tasks.filter(task => task.status === 3);
-
    /*
       ! Instrukcja z użyciem API !
       * Pobierz projekt o podanym ID [ request.post("/project/get"), {id : project_id, user_id, sideKey} ]
          * Zwróc data.project | data.tasks
    */
 
+   const taskColumns = taskStatuses.map(taskStatus => {
+      return (
+         <TaskColumn key={taskStatus.status}
+            name={taskStatus.name}
+            tasks={tasks.filter(task => task.status === taskStatus.status)}
+         />
+      )
+   })
+
+
    return (
       <main id="project" className="mt-0 p-0">
-
          <div id="background" />
 
          <div id="upper-section" className="position-relative">
@@ -63,12 +67,7 @@ const Project = () => {
             <button id="add_task" className="btn btn-success p-1 me-1" onClick={handleOpenCreateTaskFrom}>Dodaj zadanie</button>
          </div>
 
-         <div className="d-flex p-2">
-            <TaskColumn key={1} name="Nowe zadania" tasks={newTasks} />
-            <TaskColumn key={2} name="Zadania w trakcie" tasks={inProgressTasks} />
-            <TaskColumn key={3} name="W trakcie testowania" tasks={inTest} />
-            <TaskColumn key={4} name="Zadania zakończone" tasks={finishedTasks} />
-         </div>
+         <div className="d-flex p-2"> {taskColumns}</div>
 
          {createTaskFormComponent}
       </main>

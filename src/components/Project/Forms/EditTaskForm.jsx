@@ -7,7 +7,7 @@ import Modal from "../../Modal/Modal";
 import DeleteTaskForm from "./DeleteTaskkForm";
 
 const EditTaskForm = ({ id, entryName, entryDescription, entryStatus, projectId, handleOnClose }) => {
-   const { tasks, setTasks } = useContext(StoreContext)
+   const { tasks, setTasks, taskStatuses } = useContext(StoreContext)
 
    const [name, setName] = useState(entryName);
    const [description, setDescription] = useState(entryDescription);
@@ -49,14 +49,8 @@ const EditTaskForm = ({ id, entryName, entryDescription, entryStatus, projectId,
       />;
 
    /* SELECT STATUS SECTION */
-   const options = [
-      { status: 0, name: "Nowe zadanie" },
-      { status: 1, name: "W trakcie wykonywania" },
-      { status: 2, name: "W trakcie testowania" },
-      { status: 3, name: "Zakończono" }
-   ]
 
-   const optionsComponent = options.map(option => {
+   const optionsComponent = taskStatuses.map(option => {
       const selected = option.status === status ? " selected" : "";
       const classNames = `option${selected}`;
 
