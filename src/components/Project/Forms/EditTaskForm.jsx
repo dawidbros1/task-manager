@@ -38,12 +38,12 @@ const EditTaskForm = ({ id, entryName, entryDescription, entryStatus, projectId,
 
    /* DELETE TASK SECTION */
    const [isDeleteTaskFormOpen, setIsDeleteTaskFormOpen] = useState(false);
-   const handleOpenDeleteTaskFrom = () => setIsDeleteTaskFormOpen(true);
-   const handleCloseDeleteTaskFrom = () => setIsDeleteTaskFormOpen(false);
+   const handleOpenDeleteTaskForm = () => setIsDeleteTaskFormOpen(true);
+   const handleCloseDeleteTaskForm = () => setIsDeleteTaskFormOpen(false);
 
    const deleteTaskFormComponent = isDeleteTaskFormOpen &&
       <DeleteTaskForm
-         handleOnClose={handleCloseDeleteTaskFrom}
+         handleOnClose={handleCloseDeleteTaskForm}
          id={id}
          name={entryName}
       />;
@@ -91,7 +91,7 @@ const EditTaskForm = ({ id, entryName, entryDescription, entryStatus, projectId,
             <div className='d-flex flex-wrap pb-1'>
                <button type="submit" className='py-1 px-5'>Zapisz zmiany</button>
                <div className='mx-auto' />
-               <button onClick={handleOpenDeleteTaskFrom} type="button" className='py-1 px-3 me-2 btn-danger' >Usuń</button>
+               <button onClick={handleOpenDeleteTaskForm} type="button" className='py-1 px-3 me-2 btn-danger' >Usuń</button>
                <button onClick={handleOnClose} type="button" className='py-1 px-3' >Anuluj</button>
             </div>
 

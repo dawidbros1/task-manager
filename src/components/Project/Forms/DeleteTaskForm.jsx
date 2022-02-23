@@ -1,7 +1,43 @@
+import { useContext } from "react";
+import { StoreContext } from "../../../store/StoreProvider";
 
-const DeleteTaskForm = () => {
+import Modal from "../../Modal/Modal";
+
+const DeleteTaskForm = ({ id, name, handleOnClose }) => {
+   const { user, tasks, setTasks, request } = useContext(StoreContext);
+
+   const handleOnDelete = () => {
+      // const input = { id, user_id: user.id, sideKey: user.sideKey, }
+      // request.post(`/task/delete`, input, onSuccess, onFailure);
+      onSuccess();
+   }
+
+   const onSuccess = () => {
+      const newTasks = tasks.filter(project => project.id !== id);
+      setTasks(newTasks);
+   }
+
+   const onFailure = ({ description }) => {
+      console.log(description)
+   }
+
    return (
-      <div>aaa</div>
+      <Modal
+         handleOnClose={handleOnClose}
+         shouldBeCloseOnOutsideClick={false}
+      >
+         <form method="post">
+            <div id='page-title'>Usuwanie zadania</div>
+
+            <p>Czy jesteś pewien, że chcesz usunąć <span className="fw-bold">{name}</span>?</p>
+
+            <div className='d-flex flex-wrap pb-1'>
+               <button type="button" onClick={handleOnDelete} className='py-1 px-5 btn-danger'>Usuń</button>
+               <div className='mx-auto' />
+               <button onClick={handleOnClose} type="button" className='py-1 px-3' >Anuluj</button>
+            </div>
+         </form>
+      </Modal >
    )
 }
 
