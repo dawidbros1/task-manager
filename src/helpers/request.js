@@ -20,7 +20,10 @@ class Request {
          .then((response) => response.json())
          .then((response) => {
             if (response.status === 200) onSuccess(response);
-            else onFailure(response);
+            else {
+               console.log(response)
+               onFailure(response);
+            }
          });
    }
 }

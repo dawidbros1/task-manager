@@ -38,8 +38,8 @@ const StoreProvider = ({ children }) => {
 		<StoreContext.Provider value={{
 			user, setUser,
 			projects, setProjects,
-			data, setStateByDataProperty, setData,
 			tasks, setTasks,
+			data, setStateByDataProperty, setData,
 			request, taskStatuses,
 		}}>
 			{children}
