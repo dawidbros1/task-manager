@@ -4,7 +4,7 @@ import { StoreContext } from "../../../store/StoreProvider";
 import Input from "../../Form/Input";
 import Textarea from "../../Form/TextArea";
 import Modal from "../../Modal/Modal";
-import DeleteTaskForm from "./DeleteTaskkForm";
+import DeleteTaskForm from "./DeleteTaskForm";
 
 const EditTaskForm = ({ id, entryName, entryDescription, entryStatus, projectId, handleOnClose }) => {
    const { tasks, setTasks, taskStatuses } = useContext(StoreContext)
