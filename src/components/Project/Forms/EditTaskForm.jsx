@@ -7,7 +7,7 @@ import Modal from "../../Modal/Modal";
 import DeleteTaskForm from "./DeleteTaskForm";
 
 const EditTaskForm = ({ id, entryName, entryDescription, entryStatus, projectId, handleOnClose }) => {
-   const { tasks, setTasks, taskStatuses } = useContext(StoreContext)
+   const { user, tasks, setTasks, taskStatuses, request } = useContext(StoreContext)
 
    const [name, setName] = useState(entryName);
    const [description, setDescription] = useState(entryDescription);
@@ -20,8 +20,13 @@ const EditTaskForm = ({ id, entryName, entryDescription, entryStatus, projectId,
    /* ON SUBMIT SECTION */
    const handleOnSubmit = async event => {
       event.preventDefault();
-      // request.post(`/Task/${action}`, getCurrentTask(), onSuccess, onFailure);
-      onSuccess();
+
+      const task = { id, name, description, status, user_id: user.id, side_key: user.sideKey }
+
+      console.log(task);
+
+      // request.post(`/Task/edit`, task, onSuccess, onFailure);
+      // onSuccess();
    }
 
    const onSuccess = () => {
@@ -35,6 +40,8 @@ const EditTaskForm = ({ id, entryName, entryDescription, entryStatus, projectId,
       setTasks(updatedTasks);
       handleOnClose();
    }
+
+   const onFailure = () => { }
 
    /* DELETE TASK SECTION */
    const [isDeleteTaskFormOpen, setIsDeleteTaskFormOpen] = useState(false);

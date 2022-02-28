@@ -60,8 +60,8 @@ const Project = () => {
 
    const createTaskFormComponent = isCreateTaskFormOpen &&
       <CreateTaskForm
+         projectId={project.id}
          handleOnClose={handleCloseCreateTaskFrom}
-         action="create"
       />;
 
    /*

@@ -6,7 +6,7 @@ import Textarea from "../../Form/TextArea";
 import Modal from "../../Modal/Modal";
 
 const CreateTaskForm = ({ projectId, handleOnClose }) => {
-   const { tasks, setTasks } = useContext(StoreContext)
+   const { user, tasks, setTasks, request } = useContext(StoreContext)
 
    const [name, setName] = useState("");
    const [description, setDescription] = useState("");
@@ -17,23 +17,23 @@ const CreateTaskForm = ({ projectId, handleOnClose }) => {
 
    const handleOnSubmit = async event => {
       event.preventDefault();
-      // request.post(`/Task/${action}`, getCurrentTask(), onSuccess, onFailure);
-      onSuccess();
+      const task = {
+         name, description,
+         project_id: projectId,
+         user_id: user.id, sideKey: user.sideKey
+      }
+      request.post(`/Task/create`, task, onSuccess, onFailure);
    }
 
-   const onSuccess = () => {
+   const onSuccess = ({ data }) => {
       const copyTasks = tasks.map((task) => task);
-
-      const newTask = {
-         id: Math.floor(Math.random() * 10000),
-         name, description, status: 0, // PROJECT_ID
-      }
-
-      const updatedTasks = copyTasks.concat(newTask);
+      const updatedTasks = copyTasks.concat(data.task);
 
       setTasks(updatedTasks);
       handleOnClose();
    }
+
+   const onFailure = () => { }
 
    return (
       <Modal
