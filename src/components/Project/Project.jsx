@@ -15,7 +15,6 @@ const Project = () => {
 
 
    /* LOAD CURRENT PROJECT SECTION */
-
    useEffect(() => {
       const data = { id: id, user_id: user.id, sideKey: user.sideKey }
       request.post("/project/get", data, onSuccess, onFailure)
@@ -31,25 +30,6 @@ const Project = () => {
       // jakieś przekierowani do stony głownej z informaję o błędzie
    }
 
-   // useEffect(() => {
-   //    setTasks([
-   //       {
-   //          id: 1,
-   //          user_id: 1,
-   //          name: "Nowe zadanie numer 1",
-   //          description: "Opis nowego zadania",
-   //          status: 0
-   //       },
-   // {
-   //    id: 2,
-   //    user_id: 1,
-   //    name: "Zadanie numer dwa",
-   //    description: "W trakcie zadania",
-   //    status: 0
-   // },
-   //    ])
-   // }, [])
-
    /* CREATE TASK FORM SECTION */
    const [isCreateTaskFormOpen, setIsCreateTaskFormOpen] = useState(false);
    const handleOpenCreateTaskFrom = () => setIsCreateTaskFormOpen(true);
@@ -61,11 +41,6 @@ const Project = () => {
          handleOnClose={handleCloseCreateTaskFrom}
       />;
 
-   /*
-      ! Instrukcja z użyciem API !
-      * Pobierz projekt o podanym ID [ request.post("/project/get"), {id : project_id, user_id, sideKey} ]
-         * Zwróc data.project | data.tasks
-   */
 
    const taskColumns = taskStatuses.map(taskStatus => {
       return (
@@ -75,7 +50,6 @@ const Project = () => {
          />
       )
    })
-
 
    return (
       <main id="project" className="mt-0 p-0">

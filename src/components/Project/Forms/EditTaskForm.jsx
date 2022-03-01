@@ -6,12 +6,12 @@ import Textarea from "../../Form/TextArea";
 import Modal from "../../Modal/Modal";
 import DeleteTaskForm from "./DeleteTaskForm";
 
-const EditTaskForm = ({ id, entryName, entryDescription, entryStatus, projectId, handleOnClose }) => {
+const EditTaskForm = ({ id, entryName, entryDescription, entryStatus, handleOnClose }) => {
    const { user, tasks, setTasks, taskStatuses, request } = useContext(StoreContext)
 
    const [name, setName] = useState(entryName);
    const [description, setDescription] = useState(entryDescription);
-   const [status, setStatus] = useState(entryStatus);
+   const [status, setStatus] = useState(parseInt(entryStatus));
    const [validateMessages, setValidateMessages] = useState('');
 
    const handleOnChangeName = ({ target: { value } }) => setName(value);
