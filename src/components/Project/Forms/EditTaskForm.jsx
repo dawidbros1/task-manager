@@ -20,17 +20,15 @@ const EditTaskForm = ({ id, entryName, entryDescription, entryStatus, projectId,
    /* ON SUBMIT SECTION */
    const handleOnSubmit = async event => {
       event.preventDefault();
-
-      const task = { id, name, description, status, user_id: user.id, side_key: user.sideKey }
-
-      console.log(task);
-
-      // request.post(`/Task/edit`, task, onSuccess, onFailure);
-      // onSuccess();
+      const task = {
+         id: id, name: name, description: description, status: status,
+         user_id: user.id, sideKey: user.sideKey
+      }
+      request.post(`/Task/update`, task, onSuccess, onFailure);
    }
 
    const onSuccess = () => {
-      const newTask = { id, name, description, status } // PROJECT_ID
+      const newTask = { id, name, description, status }
 
       const updatedTasks = tasks.map(task => {
          if (task.id !== id) return task

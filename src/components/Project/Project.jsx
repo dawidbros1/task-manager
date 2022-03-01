@@ -17,15 +17,12 @@ const Project = () => {
    /* LOAD CURRENT PROJECT SECTION */
 
    useEffect(() => {
-
       const data = { id: id, user_id: user.id, sideKey: user.sideKey }
-
       request.post("/project/get", data, onSuccess, onFailure)
+      return () => setTasks([]);
    }, [])
 
    const onSuccess = ({ data }) => {
-      console.log("SERWER RESPONSE: ")
-      console.log(data);
       setProject(data.project); // OBJECT
       setTasks(data.tasks) // ARRAY OF OBJECT
    }
