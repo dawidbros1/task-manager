@@ -7,9 +7,8 @@ const DeleteTaskForm = ({ id, name, handleOnClose }) => {
    const { user, tasks, setTasks, request } = useContext(StoreContext);
 
    const handleOnDelete = () => {
-      // const input = { id, user_id: user.id, sideKey: user.sideKey, }
-      // request.post(`/task/delete`, input, onSuccess, onFailure);
-      onSuccess();
+      const input = { id: id, user_id: user.id, sideKey: user.sideKey }
+      request.post(`/task/delete`, input, onSuccess, onFailure);
    }
 
    const onSuccess = () => {
@@ -17,9 +16,7 @@ const DeleteTaskForm = ({ id, name, handleOnClose }) => {
       setTasks(newTasks);
    }
 
-   const onFailure = ({ description }) => {
-      console.log(description)
-   }
+   const onFailure = () => { }
 
    return (
       <Modal
