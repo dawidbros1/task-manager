@@ -1,7 +1,7 @@
 import { useState } from "react";
-import ProjectForm from "./ProjectForm";
 import ProjectDetails from "./ProjectDetails"
 import { Link } from "react-router-dom";
+import EditProjectForm from "../Forms/EditProjectForm";
 
 const Project = ({ id, name, description, created }) => {
    /* EDIT PROJECT FORM */
@@ -10,12 +10,11 @@ const Project = ({ id, name, description, created }) => {
    const handleCloseEditProjectFrom = () => setIsEditProjectFormOpen(false);
 
    const editProjectFormComponent = isEditProjectFormOpen &&
-      <ProjectForm
+      <EditProjectForm
          handleOnClose={handleCloseEditProjectFrom}
          id={id}
          entryName={name}
          entryDescription={description}
-         action="update"
       />;
 
    /* PROJECT DETAILS */
