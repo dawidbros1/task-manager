@@ -5,9 +5,10 @@ import Input from "../../Form/Input";
 import Textarea from "../../Form/TextArea";
 import Modal from "../../Modal/Modal";
 import DeleteTaskForm from "./DeleteTaskForm";
+import TaskStatuses from "./subcomponents/TaskStatuses";
 
 const EditTaskForm = ({ id, entryName, entryDescription, entryStatus, handleOnClose }) => {
-   const { user, tasks, setTasks, taskStatuses, request } = useContext(StoreContext)
+   const { user, tasks, setTasks, request } = useContext(StoreContext)
 
    const [name, setName] = useState(entryName);
    const [description, setDescription] = useState(entryDescription);
@@ -39,7 +40,9 @@ const EditTaskForm = ({ id, entryName, entryDescription, entryStatus, handleOnCl
       handleOnClose();
    }
 
-   const onFailure = () => { }
+   const onFailure = ({ status, validateMessages }) => {
+      if (status === 403) setValidateMessages(validateMessages);
+   }
 
    /* DELETE TASK SECTION */
    const [isDeleteTaskFormOpen, setIsDeleteTaskFormOpen] = useState(false);
@@ -52,17 +55,6 @@ const EditTaskForm = ({ id, entryName, entryDescription, entryStatus, handleOnCl
          id={id}
          name={entryName}
       />;
-
-   /* SELECT STATUS SECTION */
-
-   const optionsComponent = taskStatuses.map(option => {
-      const selected = option.status === status ? " selected" : "";
-      const classNames = `option${selected}`;
-
-      const handleClick = () => setStatus(option.status)
-
-      return (<div key={option.status} onClick={handleClick} className={classNames}>{option.name}</div>)
-   })
 
    return (
       <Modal
@@ -80,10 +72,10 @@ const EditTaskForm = ({ id, entryName, entryDescription, entryStatus, handleOnCl
                   rules={['between']}
                />
 
-               <div className="p-2 d-flex flex-wrap mb-1 box" id="status_box">
-                  <label className="w-100 mb-1">Wybierz status zadania:</label>
-                  {optionsComponent}
-               </div>
+               <TaskStatuses status={status} setStatus={setStatus}
+                  errors={validateMessages.status}
+                  rules={['enumeration']}
+               />
 
                <Textarea id="description" type="text" labelText="Opis zadania:"
                   onChange={handleOnChangeDescription}
