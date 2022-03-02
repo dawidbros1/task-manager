@@ -5,7 +5,7 @@ import TaskDetails from "./TaskDetails";
 
 import "./Task.scss";
 
-const Task = ({ id, status, name, description }) => {
+const Task = ({ id, status, name, description, created }) => {
    /* EDIT TASK FORM SECTION */
    const [isEditTaskFormOpen, setIsEditTaskFormOpen] = useState(false);
    const handleOpenEditTaskForm = () => setIsEditTaskFormOpen(true);
@@ -30,6 +30,7 @@ const Task = ({ id, status, name, description }) => {
          status={status}
          name={name}
          description={description}
+         created={created}
          handleOnClose={handleCloseTaskDetails}
       />;
 
