@@ -10,7 +10,10 @@ const TaskStatuses = ({ status, setStatus, errors = {}, rules = [] }) => {
 
       const handleClick = () => setStatus(option.status)
 
-      return (<div key={option.status} onClick={handleClick} className={classNames}>{option.name}</div>)
+      return (
+         <div key={option.status} onClick={handleClick} className={classNames}>
+            {option.name}
+         </div>)
    })
 
    const errorsBlock = rules.map((rule) => (

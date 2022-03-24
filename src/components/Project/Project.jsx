@@ -60,7 +60,7 @@ const Project = () => {
             <button id="add_task" className="btn btn-success p-1 me-1" onClick={handleOpenCreateTaskFrom}>Dodaj zadanie</button>
          </div>
 
-         <div className="d-flex p-2"> {taskColumns}</div>
+         <div className="d-flex flex-wrap p-2"> {taskColumns}</div>
 
          {createTaskFormComponent}
       </main>

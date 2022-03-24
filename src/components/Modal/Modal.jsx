@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import "./Modal.scss";
 
-const Modal = ({ children, handleOnClose, shouldBeCloseOnOutsideClick }) => {
+const Modal = ({ id = null, children, handleOnClose, shouldBeCloseOnOutsideClick }) => {
 	const modalRef = useRef(null);
 
 	// RESULT = OPEN DIALOG WINDOW
@@ -38,7 +38,7 @@ const Modal = ({ children, handleOnClose, shouldBeCloseOnOutsideClick }) => {
 	}
 
 	return ReactDOM.createPortal((
-		<dialog ref={modalRef} onClick={handleOutsideClick}>
+		<dialog id={id} ref={modalRef} onClick={handleOutsideClick}>
 			{children}
 		</dialog>
 	), document.body);

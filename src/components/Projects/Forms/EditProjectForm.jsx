@@ -7,7 +7,7 @@ import Modal from "../../Modal/Modal";
 import Textarea from '../../Form/TextArea';
 import DeleteProjectForm from './DeleteProjectForm';
 
-const EditProjectForm = ({ id = null, entryName = "", entryDescription = "", handleOnClose }) => {
+const EditProjectForm = ({ id, entryName, entryDescription, handleOnClose }) => {
    const { user, projects, setProjects, request } = useContext(StoreContext);
 
    const [name, setName] = useState(entryName);

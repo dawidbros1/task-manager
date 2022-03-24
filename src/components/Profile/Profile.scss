@@ -1,8 +1,13 @@
 #profile{
    max-width: 650px;
+
    margin: 0 auto 0;
+   @media (max-width: 670px) { margin: 0 10px 0 }
+   
    border: 1px solid black;
 
    background-color: white;
    border-radius: 5px;
+
+ 
 }

@@ -16,8 +16,8 @@ import './Form.scss';
 const App = () => {
   return (
     <StoreProvider>
-      <Router basename='/task-manager/frontend/build'>
-        {/* <Router basename='/'> */}
+      {/* <Router basename='/task-manager/frontend/build'> */}
+        <Router basename='/'>
         <Header />
         <Routes>
           <Route exact path="/" element={<HomePage />} />

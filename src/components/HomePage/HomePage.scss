@@ -1,0 +1,13 @@
+#homePage{
+   width: 95%;
+   margin: auto;
+   @media (max-width: 1024px) { width: 100% }
+
+   .block{
+      display: flex;
+      
+      div{
+         width: 50%;
+      }
+   }
+}

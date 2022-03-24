@@ -7,7 +7,7 @@ const DeleteProjectForm = ({ id, name, handleOnClose }) => {
    const { user, projects, setProjects, request } = useContext(StoreContext);
 
    const handleOnDelete = () => {
-      const input = { id, user_id: user.id, sideKey: user.sideKey, }
+      const input = { id: id, user_id: user.id, sideKey: user.sideKey, }
       request.post(`/project/delete`, input, onSuccess, onFailure);
    }
 
@@ -24,6 +24,7 @@ const DeleteProjectForm = ({ id, name, handleOnClose }) => {
       <Modal
          handleOnClose={handleOnClose}
          shouldBeCloseOnOutsideClick={false}
+         id="delete_form"
       >
          <form method="post">
             <div id='page-title'>Usuwanie projektu</div>
