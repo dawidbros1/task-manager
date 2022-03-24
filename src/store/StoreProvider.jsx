@@ -11,10 +11,10 @@ const StoreProvider = ({ children }) => {
 	const request = new Request();
 
 	const taskStatuses = [
-		{ status: 0, name: "Nowe zadanie" },
+		{ status: 0, name: "Nowe zadania" },
 		{ status: 1, name: "W trakcie wykonywania" },
 		{ status: 2, name: "W trakcie testowania" },
-		{ status: 3, name: "Zakończono" }
+		{ status: 3, name: "Zakończone" }
 	]
 
 	// const [user, setUser] = useState(null);

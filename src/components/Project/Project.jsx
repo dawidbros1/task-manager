@@ -56,7 +56,8 @@ const Project = () => {
          <div id="background" />
 
          <div id="upper-section" className="position-relative">
-            <div className="title">{project.name}</div>
+            {/* <div className="title">{project.name}</div> */}
+            <div className="title">Media społecznościowe</div>
             <button id="add_task" className="btn btn-success p-1 me-1" onClick={handleOpenCreateTaskFrom}>Dodaj zadanie</button>
          </div>
 
