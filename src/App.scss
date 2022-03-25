@@ -1,6 +1,5 @@
 body{
-   background-color: lightgray;
-   // overflow: hidden;
+   min-width: 400px;
 }
 
 .container-fluid{
@@ -9,10 +8,14 @@ body{
 }
 
 #page-title{
+   position: relative;
+
 	font-weight: bold;
 	text-align: center;
 	font-size: 21px;
 	padding-bottom: 6px;
+
+   // border: 1px solid black;
 }
 
 button{

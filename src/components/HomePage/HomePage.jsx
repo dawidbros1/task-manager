@@ -3,51 +3,44 @@ import "./HomePage.scss";
 const HomePage = () => {
    return (
       <main id="homePage">
-         <div className="text-center h2 border-bottom p-2 bg-primary text-white">Task Manager</div>
+         <div className="title mb-2">Task Manager</div>
 
-         <p>
-            <div className="fw-bold">Czym jest TaskManager? </div>
-            <div>Jest to system to zarządzania zadaniami w projekcie. Twórz własne projekty
-               Twórz zadania do projektów.
-
-               Pomaga w tworzeniu projektu | zarządzania projektami.
-               Większa produktywność | efektywność | Wygoda
-
-               Zwiększ swoją produktywność
-
-
-               Łatwy dostęp do zadań
-               Wygodny interfejst ( screen edytuj zadanie )
-
+         <div id="items">
+            <div className="item">
+               <img src="./images/project.png" alt="project" />
+               <div class="description">Twórz własne projekty</div>
             </div>
-         </p>
 
-         <div className="block">
-            <div>
-               <img src="abc" alt="act" />
+            <div className="item">
+               <img src="./images/form.png" alt="project" />
+               <div class="description">Dodawaj zadania do projektu</div>
             </div>
-            <div>
-               Tekst
+
+            <div className="item">
+               <img src="./images/tasks.png" alt="project" />
+               <div class="description">Zarządzaj zadaniami w projekcie</div>
+            </div>
+
+            <div className="item">
+               <img src="./images/time.png" alt="project" />
+               <div class="description">Zmniejsz czas poświęcony na zarządzaniu projektem</div>
+            </div>
+
+            <div className="item">
+               <img src="./images/growth.png" alt="project" />
+               <div class="description">Zwiększ efektywność pracy</div>
+            </div>
+
+            <div className="item">
+               <img src="./images/interface.png" alt="project" />
+               <div class="description">Korzystaj w wygodnego interfejsu</div>
+            </div>
+
+            <div className="item">
+               <img src="./images/responsive.png" alt="project" />
+               <div class="description">Korzystaj na każdym urządzeniu</div>
             </div>
          </div>
-
-         {
-            /* 
-               Twórz nowe projekty -> Obrazek
-               Zarządzaj swoimi projektaimi -> Lista projektów
-               Zarzązdaj pojedynczym projektem -> Lista zadań
-               Dodowaj zadania
-               Edutuj zadania
-
-               
-
-
-               Obrazek (Lista projektów) -> Tekst
-               Teskt -> Obrazek (Lista zadań)
-               Obrazek (Tworzenia zadań) -> Obrazek
-               Teskt -> Obrazek (Edycja zadań)
-            */
-         }
       </main>
    );
 };
