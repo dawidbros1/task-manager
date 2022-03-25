@@ -32,11 +32,11 @@ const Project = ({ id, name, description, created }) => {
 
    return (
       <div className="project col-12 col-lg-6">
-         <div className="d-flex flex-wrap">
+         <div className="d-flex">
             <div className="title py-1">{name} <Link to={`/project/${id}`} /></div>
 
-            <button className="details" onClick={handleOpenProjectDetails}> Szczegóły</button>
-            <button className="edit" onClick={handleOpenEditProjectFrom}> Edytuj</button>
+            <img className="details" src="./images/details.png" onClick={handleOpenProjectDetails} alt="details" />
+            <img className="edit" src="./images/settings.png" onClick={handleOpenEditProjectFrom} alt="settings" />
 
             {editProjectFormComponent}
             {projectDetailsComponent}

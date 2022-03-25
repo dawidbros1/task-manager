@@ -36,12 +36,12 @@ const Projects = () => {
 
    return (
       <main id="projects">
-         <div id="page-title" className="border-bottom">Moje projekty</div>
-         <button id="add" onClick={handleOpenCreateProjectFrom}>Dodaj nowy</button>
-
-         <div className="d-flex flex-wrap">
-            {projectsComponent}
+         <div id="page-title" className="border-bottom">
+            Moje projekty
+            <img id="add_project" src="./images/add.png" alt="add" onClick={handleOpenCreateProjectFrom} />
          </div>
+
+         <div className="d-flex flex-wrap pt-2">{projectsComponent} </div>
 
          {projectFormComponent}
       </main>

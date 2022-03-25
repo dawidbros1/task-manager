@@ -22,6 +22,7 @@ const DeleteTaskForm = ({ id, name, handleOnClose }) => {
       <Modal
          handleOnClose={handleOnClose}
          shouldBeCloseOnOutsideClick={false}
+         id="delete_form"
       >
          <form method="post">
             <div id='page-title'>Usuwanie zadania</div>

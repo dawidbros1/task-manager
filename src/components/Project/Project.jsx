@@ -57,8 +57,10 @@ const Project = () => {
 
          <div id="upper-section" className="position-relative">
             {/* <div className="title">{project.name}</div> */}
-            <div className="title">Media społecznościowe</div>
-            <button id="add_task" className="btn btn-success p-1 me-1" onClick={handleOpenCreateTaskFrom}>Dodaj zadanie</button>
+            <div className="title">Media społecznościowe
+               <img id="add_project" src="./../images/add.png" alt="add" onClick={handleOpenCreateTaskFrom} />
+            </div>
+            {/* <button id="add_task" className="btn btn-success p-1 me-1" onClick={handleOpenCreateTaskFrom}>Dodaj zadanie</button> */}
          </div>
 
          <div className="d-flex flex-wrap p-2"> {taskColumns}</div>

@@ -39,7 +39,7 @@ const Task = ({ id, status, name, description, created }) => {
          <div className="task" >
             <div className="d-flex">
                <div className="name" onClick={handleOpenTaskDetails}>{name}</div>
-               <img onClick={handleOpenEditTaskForm} className="settings" src="./../images/settings.png" alt="settings icon" />
+               <img onClick={handleOpenEditTaskForm} className="settings" src="./../images/settings.png" alt="settings" />
             </div>
          </div>
 
