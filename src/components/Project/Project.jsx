@@ -13,7 +13,6 @@ const Project = () => {
 
    const [project, setProject] = useState({});
 
-
    /* LOAD CURRENT PROJECT SECTION */
    useEffect(() => {
       const data = { id: id, user_id: user.id, sideKey: user.sideKey }
