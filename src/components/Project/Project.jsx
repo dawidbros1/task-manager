@@ -45,13 +45,14 @@ const Project = () => {
       return (
          <TaskColumn key={taskStatus.status}
             name={taskStatus.name}
+            className={taskStatus.className}
             tasks={tasks.filter(task => (task.status - 0) === taskStatus.status)}
          />
       )
    })
 
    return (
-      <main id="project" className="mt-0 p-0">
+      <main id="project">
          <div id="background" />
 
          <div id="upper-section" className="position-relative">

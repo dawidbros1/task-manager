@@ -1,14 +1,9 @@
 .task_column{
-   // width: 300px;
    width: 24%;
+   overflow: hidden;
 
-   @media (max-width: 900px) {
-      width: 49%;
-   }
-
-   @media (max-width: 576px) {
-      width: 100%;
-   }
+   @media (max-width: 900px) { width: 49% }
+   @media (max-width: 576px) { width: 100% }
 
    height: max-content;
    margin: 0 auto 5px;
@@ -29,3 +24,8 @@
       color: black;
    }
 }
+
+.new{ background-color: pink };
+.in_progress{ background-color: lightblue; };
+.in_tests{background-color: yellow};
+.finished{background-color: lightgreen};

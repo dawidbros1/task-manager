@@ -1,5 +1,6 @@
 body{
    min-width: 400px;
+   // margin-top: 45px;
 }
 
 .container-fluid{
@@ -9,13 +10,10 @@ body{
 
 #page-title{
    position: relative;
-
 	font-weight: bold;
 	text-align: center;
 	font-size: 21px;
 	padding-bottom: 6px;
-
-   // border: 1px solid black;
 }
 
 button{
@@ -24,7 +22,7 @@ button{
 }
 
 main{
-   padding: 10px;
-   margin-top: 10px !important;
-   // margin-bottom: 10px !important;
+   padding-top: 55px !important;
+   padding-left: 10px;
+   padding-right: 10px;
 }
