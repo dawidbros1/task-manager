@@ -1,4 +1,4 @@
-# Task Manager - FRONTNED
+# Task Manager - FRONTEND
 Jest to fronend aplikacji do zarządzania projektami i zadaniami.
 
 ## Funkcjonalności
