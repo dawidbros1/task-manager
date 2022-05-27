@@ -10,7 +10,7 @@ It is the frontend of the project and task management application.
 2.
 3.
 4.
-5
+5.
 
 ## Installation Instructions
 1. Run `git clone https://github.com/dawidbros1/task-manager`
