@@ -1,12 +1,20 @@
 # Task Manager - FRONTEND
-Jest to fronend aplikacji do zarządzania projektami i zadaniami.
+It is the frontend of the project and task management application.
 
-## Funkcjonalności
+### Build with
+1. React 17
+2. SASS
 
-## Instalacja
-• Pobranie repozytorium \
-• Umieszczenie plików na serwerze \
-• Uruchomienie polecenia `npm install` \
-• Uruchomienie polecenia `npm run` \
+## Features
+1.
+2.
+3.
+4.
+5
 
-• Instalacja [API](https://github.com/dawidbros1/task-manager-api)
+## Installation Instructions
+1. Run `git clone https://github.com/dawidbros1/task-manager`
+2. Run `npm install` and next `npm start`
+3. Install [API](https://github.com/dawidbros1/task-manager-api)
+
+# DOCUMENATION - IN FUTURE
